@@ -7,9 +7,14 @@ const opts = {
   port: 4723,
   capabilities: {
     platformName: 'iOS',
-    platformVersion: '15.5',
+    platformVersion: '15.2',
     deviceName: 'iPhone 13',
-    app: path.resolve(process.env.SYMROOT, 'Debug-iphonesimulator/TestApp-iphonesimulator.app'),
+    app:
+      process.env.BITRISE_APP_DIR_PATH ||
+      path.resolve(
+        __dirname,
+        './build/Release-iphonesimulator/TestApp-iphonesimulator.app',
+      ),
     automationName: 'XCUITest',
   },
 };
