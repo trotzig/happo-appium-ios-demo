@@ -16,7 +16,7 @@ workflows:
             echo 'PR'
             git log
             echo 'MASTER'
-            git log master
+            git log origin/master
             exit 1
             envman add --key HAPPO_DEBUG --value "true"
             envman add --key HAPPO_CURRENT_SHA --value "${BITRISE_GIT_COMMIT}"
