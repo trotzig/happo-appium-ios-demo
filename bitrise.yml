@@ -24,10 +24,10 @@ workflows:
         inputs:
         - command: "happo-e2e -- -- node test.js"
     - script@1.2.0:
+        is_always_run: true
         inputs:
         - content: "cat appium.log"
     - cache-push@2: {}
-    - deploy-to-bitrise-io@2: {}
 meta:
   bitrise.io:
     stack: osx-xcode-13.2.x
