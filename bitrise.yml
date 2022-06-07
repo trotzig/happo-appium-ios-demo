@@ -15,7 +15,7 @@ workflows:
             printenv
             envman add --key HAPPO_CURRENT_SHA --value "${BITRISE_GIT_COMMIT}"
             envman add --key HAPPO_PREVIOUS_SHA --value $(git merge-base "${BITRISEIO_GIT_BRANCH_DEST}" "${BITRISE_GIT_COMMIT}")
-            envman add --key HAPPO_CHANGE_URL --value "${BITRISE_PULL_REQUEST_REPOSITORY_URL}/pull/${BITRISEIO_PULL_REQUEST}"
+            envman add --key HAPPO_CHANGE_URL --value "${GIT_REPOSITORY_URL%????}/pull/${BITRISEIO_PULL_REQUEST}"
     - yarn@0:
         inputs:
         - command: install
