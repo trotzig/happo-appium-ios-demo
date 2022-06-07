@@ -166,7 +166,7 @@
                 <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="8As-To-n49">
                     <rect key="frame" x="53" y="468" width="184" height="30"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <state key="normal" title="Check cal auth"/>
+                    <state key="normal" title="Check calendar auth"/>
                     <connections>
                         <action selector="checkCalendarAuthorized:" destination="-1" eventType="touchUpInside" id="zmM-vq-0MZ"/>
                     </connections>
