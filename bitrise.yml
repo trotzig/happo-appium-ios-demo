@@ -15,7 +15,7 @@ workflows:
             envman add --key HAPPO_DEBUG --value "true"
             envman add --key HAPPO_CURRENT_SHA --value "${BITRISE_GIT_COMMIT}"
             if [ -z ${BITRISE_PULL_REQUEST+x} ]; then
-              envman add --key HAPPO_PREVIOUS_SHA --value "$(BITRISE_GIT_COMMIT}"
+              envman add --key HAPPO_PREVIOUS_SHA --value "${BITRISE_GIT_COMMIT}"
               envman add --key HAPPO_CHANGE_URL --value "${GIT_REPOSITORY_URL%????}/commit/${BITRISE_GIT_COMMIT}"
             else
               envman add --key HAPPO_PREVIOUS_SHA --value $(git merge-base "origin/${BITRISEIO_GIT_BRANCH_DEST}" "${BITRISE_GIT_COMMIT}")
