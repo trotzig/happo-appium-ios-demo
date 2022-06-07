@@ -17,6 +17,9 @@ workflows:
     - yarn@0:
         inputs:
         - command: "run install"
+    - script@1.1.5:
+        inputs:
+        - content: "npx appium &>/dev/null &"
     - yarn@0:
         inputs:
         - command: "happo-e2e -- -- node test.js"
