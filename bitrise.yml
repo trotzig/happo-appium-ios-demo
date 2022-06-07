@@ -19,7 +19,7 @@ workflows:
         - command: "run install"
     - script@1.2.0:
         inputs:
-        - content: "npm install -g appium --unsafe-perm=true --allow-root && appium --log appium.log &>/dev/null &"
+        - content: "npm install -g appium --unsafe-perm=true --allow-root && appium  &>appium.log &"
     - yarn@0:
         inputs:
         - command: "happo-e2e -- -- node test.js"
