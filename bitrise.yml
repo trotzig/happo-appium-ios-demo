@@ -17,12 +17,15 @@ workflows:
     - yarn@0:
         inputs:
         - command: "run install"
-    - script@1.1.5:
+    - script@1.2.0:
         inputs:
-        - content: "npx appium &>/dev/null &"
+        - content: "npm install -g appium --unsafe-perm=true --allow-root && appium --log appium.log &>/dev/null &"
     - yarn@0:
         inputs:
         - command: "happo-e2e -- -- node test.js"
+    - script@1.2.0:
+        inputs:
+        - content: "cat appium.log"
     - cache-push@2: {}
     - deploy-to-bitrise-io@2: {}
 meta:
