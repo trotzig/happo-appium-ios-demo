@@ -9,7 +9,7 @@ const opts = {
     platformName: 'iOS',
     platformVersion: '15.5',
     deviceName: 'iPhone 13',
-    app: path.resolve(__dirname, './build/Release-iphonesimulator/TestApp-iphonesimulator.app'),
+    app: path.resolve(process.env.SYMROOT, 'Debug-iphonesimulator/TestApp-iphonesimulator.app'),
     automationName: 'XCUITest',
   },
 };

@@ -19,6 +19,9 @@ workflows:
         - project_path: "$BITRISE_PROJECT_PATH"
         - scheme: "$BITRISE_SCHEME"
         - destination: platform=iOS Simulator,name=iPhone 13,OS=latest
+    - yarn@0:
+        inputs:
+        - command: "happo-e2e -- -- node test.js"
     - cache-push@2: {}
     - deploy-to-bitrise-io@2: {}
 meta:
