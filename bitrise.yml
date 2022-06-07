@@ -37,6 +37,6 @@ app:
       is_expand: false
     BITRISE_DISTRIBUTION_METHOD: development
 trigger_map:
-  - pr_source_branch: "*"
+  - pull_request_source_branch: "*"
     workflow: primary
 
