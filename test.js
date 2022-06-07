@@ -1,6 +1,7 @@
 const path = require('path');
 const wdio = require('webdriverio');
 const HappoController = require('happo-e2e/controller');
+const { execSync } = require('child_process');
 
 const opts = {
   path: '/wd/hub',
@@ -9,12 +10,10 @@ const opts = {
     platformName: 'iOS',
     platformVersion: '15.2',
     deviceName: 'iPhone 13',
-    app:
-      process.env.BITRISE_APP_DIR_PATH ||
-      path.resolve(
-        __dirname,
-        './build/Release-iphonesimulator/TestApp-iphonesimulator.app',
-      ),
+    app: path.resolve(
+      __dirname,
+      './build/Release-iphonesimulator/TestApp-iphonesimulator.app',
+    ),
     automationName: 'XCUITest',
   },
 };
@@ -24,6 +23,7 @@ async function main() {
   await happoController.init();
 
   const client = await wdio.remote(opts);
+  execSync('xcrun simctl status_bar booted override --time "12:00" --batteryState charged --batteryLevel 100 --cellularBars 4');
   const screenshot = await client.takeScreenshot();
   await happoController.registerLocalSnapshot({
     component: 'Foo',
