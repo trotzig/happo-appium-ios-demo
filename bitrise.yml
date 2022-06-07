@@ -12,8 +12,9 @@ workflows:
         inputs:
         - content: |
             set -euo pipefail
+            printenv
             envman add --key HAPPO_CURRENT_SHA --value "${BITRISE_GIT_COMMIT}"
-            envman add --key HAPPO_PREVIOUS_SHA --value $(git merge-base "${BITRISEIO_GIT_BRANCH_DEST}" "${HAPPO_CURRENT_SHA}")
+            envman add --key HAPPO_PREVIOUS_SHA --value $(git merge-base "${BITRISEIO_GIT_BRANCH_DEST}" "${BITRISE_GIT_COMMIT}")
             envman add --key HAPPO_CHANGE_URL --value "${BITRISEIO_PULL_REQUEST_REPOSITORY_URL}/pull/${BITRISEIO_PULL_REQUEST}"
     - yarn@0:
         inputs:
